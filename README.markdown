@@ -1,3 +1,5 @@
+A fork of Clamp.js by Joseph Schmitt. http://joe.sh/clamp-js
+
 Clamps (ie. cuts off) an HTML element's content by adding ellipsis to it if the 
 content inside is too long.
 
