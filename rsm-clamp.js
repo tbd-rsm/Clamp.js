@@ -180,6 +180,17 @@
             //Insert the custom HTML before the truncation character
             if (truncationHTMLContainer) {
                 target.nodeValue = target.nodeValue.replace(opt.truncationChar, '');
+                /*
+                 * IE Fix
+                 * IE destroys child node when setting a node's inner html.
+                 * To keep our target node we first detach it from the element.
+                 */
+                if (target.parentNode) {
+                    try {
+                        element.removeChild(target);
+                    } catch (e) {
+                    }
+                }
                 element.innerHTML = target.nodeValue + ' ' + truncationHTMLContainer.innerHTML + opt.truncationChar;
             }
 
